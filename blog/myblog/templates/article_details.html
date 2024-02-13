@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}
+  {{ post.title_tag }}
+{% endblock %}
+
+
+{% block content %}
   <h1>{{ post.title }}
   </h1>
   <small>By: {{ post.author.first_name }} {{ post.author.last_name }}</small>
   <hr>
   <p>{{ post.body }}</p>
-</body>
-</html>
+  <br/><br/>
+  <a class="btn btn-primary" href="{% url 'home' %}">Back to home</a>
+{% endblock %}

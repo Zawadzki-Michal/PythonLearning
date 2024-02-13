@@ -1,19 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog Website</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
+    
   <h1>Welcome to my Blog Website</h1>
   <ul>
   {% for post in object_list %}
     <li>
     <h2><a href="{% url 'article-detail' post.pk %}">{{ post.title }}</a></h2>
-    <h3>{{ post.author.first_name }} {{ post.author.last_name }}</h3>
+    <h4>{{ post.author.first_name }} {{ post.author.last_name }}</h4>
     <p>{{ post.body }}</p></li>
   {% endfor%}
 </ul>
-</body>
-</html>
+
+{% endblock%}
